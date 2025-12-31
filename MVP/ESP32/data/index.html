@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESP32 Blink Controller</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>ESP32 Blink Controller</h1>
+<div class="status" id="status">Состояние: Проверка...</div>
+<div class="timer" id="timer">Время: --:--</div>
+<button class="btn" id="checkBtn" onclick="checkConfig()">Проверить состояние</button><br><br>
+<button class="btn" id="controlBtn" onclick="toggleBlinking()" disabled>Старт</button>
+<div id="expiredMsg" style="display:none; color: red; font-weight: bold; margin-top: 20px;">Время жизни истекло</div>
+<script src="script.js"></script>
+</body>
+</html>
