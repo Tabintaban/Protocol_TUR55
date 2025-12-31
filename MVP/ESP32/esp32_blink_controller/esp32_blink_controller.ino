@@ -25,7 +25,7 @@ int sequenceLength = 0;
 int totalDuration = 0; // в секундах
 bool isRunning = false;
 bool timerExpired = false;
-bool timerStarted = false;
+bool blinkTimerStarted = false;
 unsigned long startTime = 0;
 int currentStep = 0;
 unsigned long stepStartTime = 0;
@@ -297,7 +297,7 @@ void handleTimerStatus() {
   int timeElapsed = 0;
   int timeRemaining = totalDuration;
   
-  if (timerStarted) {
+  if (blinkTimerStarted) {
     timeElapsed = (currentTime - startTime) / 1000;
     timeRemaining = totalDuration - timeElapsed;
     
@@ -330,7 +330,7 @@ void startBlinking() {
   }
   
   isRunning = true;
-  timerStarted = true;
+  blinkTimerStarted = true;
   startTime = millis();
   currentStep = 0;
   stepState = false; // Начинаем с LOW
@@ -383,7 +383,7 @@ void handleBlinkSequence() {
 
 // Проверка таймера
 void checkTimer() {
-  if (timerStarted && !timerExpired) {
+  if (blinkTimerStarted && !timerExpired) {
     unsigned long currentTime = millis();
     int timeElapsed = (currentTime - startTime) / 1000;
     
